@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Search Anki Support Links</title>
+    </head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        :root {
+            --item-height: 50px;
+        }
+        * {
+            font-size: 16px;
+        }
+        body {
+            margin: 0px;
+            width: 600px;
+            overflow-y: auto;
+            background-color: #fff;
+            min-height: var(--item-height);
+        }
+        #anki-search-inner {
+            border-radius: 8px;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+            border: 1px solid #dfe1e5;
+        }
+
+        input {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+            outline: none;
+            padding: 8px;
+            width: 100%;
+            height: var(--item-height);
+            position: fixed;
+            top: 0px;
+            z-index: 1;
+        }
+
+        #anki-search-results {
+            list-style-type: none;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            outline: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .anki-search-result {
+            max-height: var(--item-height);
+            padding: 8px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .anki-search-result:hover,
+        .anki-search-result:focus {
+            background-color: #f7f8f9;
+        }
+    </style>
+    <body>
+        <div id="anki-search-inner">
+            <input type="text" autofocus />
+            <div id="anki-search-results" tabindex="-1"></div>
+        </div>
+    </body>
+    <script src="popup.js"></script>
+</html>
