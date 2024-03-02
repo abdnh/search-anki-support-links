@@ -65,6 +65,9 @@ function setupSearchbar() {
                     window.close();
                 });
             }
+            if(resultsContainer.firstElementChild) {
+                resultsContainer.firstElementChild.classList.add("selected");
+            }
         });
     });
 }
