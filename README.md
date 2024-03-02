@@ -4,7 +4,7 @@ This Chrome extension shows a search bar to search links in Anki's docs sites ([
 
 ## Updating searchable links
 
-Searchable links are in the [links.txt](links.txt). You can update the list using the [scripts/extract_links.py](scripts/extract_links.py).
+Searchable links are stored in [links.txt](links.txt). You can update the list using [scripts/extract_links.py](scripts/extract_links.py).
 
 ## Installation
 
