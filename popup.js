@@ -1,3 +1,18 @@
+async function sendLink(link, shiftKey = false) {
+    const [tab] = await chrome.tabs.query({
+        currentWindow: true,
+        active: true,
+    });
+    let message;
+    if(shiftKey) {
+        message = link;
+    } else {
+        message = `Please see ${link}`;
+    }
+    await chrome.tabs.sendMessage(tab.id, message);
+    window.close();
+}
+
 function setupSearchbar() {
     const resultsContainer = document.getElementById("anki-search-results");
     document.body.addEventListener("keydown", (event) => {
@@ -7,7 +22,7 @@ function setupSearchbar() {
             el.classList.contains("selected")
         );
         if (selected >= 0 && event.key === "Enter") {
-            results[selected].click();
+            sendLink(results[selected].textContent, event.shiftKey);
             return;
         }
         let newSelected;
@@ -56,13 +71,8 @@ function setupSearchbar() {
                 result.tabIndex = 0;
                 result.textContent = link;
                 resultsContainer.appendChild(result);
-                result.addEventListener("click", async () => {
-                    const [tab] = await chrome.tabs.query({
-                        currentWindow: true,
-                        active: true,
-                    });
-                    await chrome.tabs.sendMessage(tab.id, link);
-                    window.close();
+                result.addEventListener("click", (event) => {
+                    sendLink(link, event.shiftKey);
                 });
             }
             if(resultsContainer.firstElementChild) {

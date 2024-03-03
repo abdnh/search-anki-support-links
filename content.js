@@ -1,5 +1,5 @@
 function onMessage(message, sender, sendResponse) {
-    document.execCommand("inserttext", false, `Please see ${message}`);
+    document.execCommand("inserttext", false, message);
     sendResponse();
     return true;
 }
