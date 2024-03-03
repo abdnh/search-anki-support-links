@@ -6,15 +6,15 @@ Usage:
 2. Run: `python scripts/extract_links.py > links.txt`
 """
 
+from urllib.request import urlopen
+from urllib.parse import urljoin
+from bs4 import BeautifulSoup
+
 SITES = [
     "https://docs.ankiweb.net/",
     "https://faqs.ankiweb.net/",
     "https://docs.ankimobile.net/",
 ]
-
-from urllib.request import urlopen
-from urllib.parse import urljoin
-from bs4 import BeautifulSoup
 
 for site in SITES:
     with urlopen(site) as response:
