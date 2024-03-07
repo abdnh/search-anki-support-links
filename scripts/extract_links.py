@@ -3,7 +3,7 @@ This script collects TOC links from SITES and dumps them to stdout.
 
 Usage:
 1. Install requirements: `pip install beautifulsoup4`
-2. Run: `python scripts/extract_links.py > links.txt`
+2. Run: `./update-links.sh``
 """
 
 from urllib.request import urlopen
