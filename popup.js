@@ -4,7 +4,7 @@ async function sendLink(link, shiftKey = false) {
         active: true,
     });
     let message;
-    if(shiftKey) {
+    if (!shiftKey) {
         message = link;
     } else {
         message = `Please see ${link}`;
